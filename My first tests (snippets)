@@ -1,0 +1,13 @@
+pm.test("Verify status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Verify that id equals 2", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.data.id).to.eql(2);
+});
+
+pm.test("Information about first_name Janet", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.data.first_name).to.eql("Janet");
+});
