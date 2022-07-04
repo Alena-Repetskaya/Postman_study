@@ -1,0 +1,73 @@
+Method POST:
+{
+    "email":"{{email}}",
+    "password":"{{password}}"
+}
+File JSON with data:
+[
+	{
+"email":"1@test.ru",
+"password":"123456"
+	},
+	{
+"email":"2@test.ru",
+"password":"456789"
+	},
+	{
+"email":"3@test.ru",
+"password":"987654"
+	},
+	{
+"email":"eve.holt@reqres.in",
+"password":"pistol"
+	}
+]
+
+Results:
+
+{
+	"id": "9b0756d9-87df-47f2-9f50-b35382bc24cf",
+	"name": "CSV plus JSON",
+	"timestamp": "2022-07-04T12:34:01.935Z",
+	"collection_id": "21438884-1a171aa5-8456-41e4-8b4a-47844de4ddea",
+	"folder_id": 0,
+	"environment_id": "21438884-b3463207-771e-41c8-a5a1-639bc81035cf",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8cfb7b50-e969-424a-9fe2-7796760346ee",
+			"name": "Register",
+			"time": 207,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				361,
+				208,
+				238,
+				207
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 4,
+	"totalTime": 1014,
+	"collection": {
+		"requests": [
+			{
+				"id": "8cfb7b50-e969-424a-9fe2-7796760346ee",
+				"method": "POST"
+			}
+		]
+	}
+}
+
