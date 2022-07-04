@@ -1,0 +1,69 @@
+Method POST
+{
+    "email":"{{email}}",
+    "password":"{{password}}"
+}
+
+CSV_data:
+email,password
+1@test.com,1234546
+2@test.com,4566798
+3@test.com,7897897
+4@test.com,1515779
+5@test.com,2582586
+6@test.com,3578859
+7@test.com,8428554
+
+Response:
+
+{
+	"id": "7757842b-976c-49bb-bea0-b3147799eafe",
+	"name": "CSV plus JSON",
+	"timestamp": "2022-07-04T12:08:45.272Z",
+	"collection_id": "21438884-1a171aa5-8456-41e4-8b4a-47844de4ddea",
+	"folder_id": 0,
+	"environment_id": "21438884-b3463207-771e-41c8-a5a1-639bc81035cf",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8cfb7b50-e969-424a-9fe2-7796760346ee",
+			"name": "Register",
+			"time": 738,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				424,
+				339,
+				320,
+				343,
+				745,
+				883,
+				738
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 7,
+	"totalTime": 3792,
+	"collection": {
+		"requests": [
+			{
+				"id": "8cfb7b50-e969-424a-9fe2-7796760346ee",
+				"method": "POST"
+			}
+		]
+	}
+}
