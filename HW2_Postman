@@ -21,28 +21,72 @@ pm.test("Status code is 200", function () {
 const responseJson = pm.response.json();
 console.log (responseJson);
 
+Ввожу переменные: 
+let response_name = responseJson.name;
+let response_age = responseJson.age;
+let response_salary = responseJson.salary;
+
+let req = request.data;
+console.log (req); - для проверки.
+
+let request_name = req.name;
+let request_age = req.age;
+let request_salary = req.salary;
+
 4. Проверить, что name в ответе равно name s request (name вбить руками.)
 pm.test("Response_name", function () {
-    pm.expect(pm.response.text("name")).to.include("Alena");
+    pm.expect(pm.response.text("name")).to.eql("Alena");
 });
 
 5. Проверить, что age в ответе равно age s request (age вбить руками.)
 pm.test("Response_age", function () {
-    pm.expect(pm.response.text("age")).to.include("30");
+    pm.expect(pm.response.text("age")).to.eql("30");
 });
 
 6. Проверить, что salary в ответе равно salary s request (salary вбить руками.)
 pm.test("Response_salary", function () {
-    pm.expect(pm.response.text("salary")).to.include(12000);
+    pm.expect(pm.response.text("salary")).to.eql(12000);
 });
 
-7. Спарсить request.
+7. Спарсить request - есть вопрос по этому пункту. 
+Я сделала такое: 
+let reqData = JSON.stringify(request.data);
+console.log(reqData);
+{"age":"30","name":"Alena","salary":"12000"}
+И дальше ничего не смогла вытянуть из этих данных) 
 
+Одногруппники посоветовали делать так: 
+let req = request.data;
+console.log (req);
+age: "30"
+name: "Alena"
+salary: "12000"
+И из этих данных можно уже вытягивать информацию. 
 
 8. Проверить, что name в ответе равно name s request (name забрать из request.)
-
+pm.test("resp_req_name", function () {
+    pm.expect(response_name).to.eql(request_name)
+});
 
 9. Проверить, что age в ответе равно age s request (age забрать из request.)
+pm.test("resp_req_age", function () {
+    pm.expect(response_age).to.eql(request_age)
+});
+
 10. Проверить, что salary в ответе равно salary s request (salary забрать из request.)
+pm.test("resp_req_salary", function () {
+    pm.expect(JSON.stringify(response_salary)).to.eql(request_salary)
+});
+Здесь пришлось добавить в response stringify потому что преобразование request выводит строку. 
+
 11. Вывести в консоль параметр family из response.
-12. Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)
+let family = responseJson.family;
+console.log (family);
+
+12. Проверить что в ответе равно salary*4 (salary забрать из request)
+let response_salary_1_5 = responseJson.family.u_salary_1_5_year;
+let request_salary_1_5 = request_salary * 4
+Переменная request_salary вводилась ранее. 
+pm.test("resp_req_salary_1_5", function () {
+    pm.expect(JSON.stringify(response_salary_1_5)).to.eql(request_salary_1_5)
+});
